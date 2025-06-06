@@ -1,25 +1,27 @@
 {
-  "type": "object",
-  "properties": {
+  "type": "panel",
+  "items": {
     "username": {
       "type": "string",
-      "title": "Nextcloud Username",
-      "minLength": 1,
-      "default": ""
+      "label": "Nextcloud Username",
+      "sm": 12,
+      "md": 6,
+      "lg": 4
     },
     "token": {
       "type": "string",
-      "title": "Nextcloud App Token",
-      "minLength": 1,
-      "default": ""
+      "label": "Nextcloud App Token",
+      "sm": 12,
+      "md": 6,
+      "lg": 4
     },
     "server": {
       "type": "string",
-      "title": "Nextcloud Talk API URL",
-      "minLength": 5,
+      "label": "Nextcloud Talk API URL",
+      "sm": 12,
+      "md": 6,
+      "lg": 4
       "default": "https://your-nextcloud.example.com",
-      "pattern": "https?://.+"
     }
   },
-  "required": ["username", "token", "server"]
 }
