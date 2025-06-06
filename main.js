@@ -12,7 +12,7 @@ class NextcloudTalk extends utils.Adapter {
     async onReady() {
         await this.setObjectNotExists('roomID', {
             type: 'state',
-            common: { type: 'number', role: 'value', name: 'Room ID', write: true, read: true },
+            common: { type: 'string', role: 'value', name: 'Room ID', write: true, read: true },
             native: {}
         });
         await this.setObjectNotExists('text', {
