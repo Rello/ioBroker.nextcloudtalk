@@ -16,3 +16,11 @@ This adapter allows sending notifications to Nextcloud Talk rooms.
 
 Update the `text` state from scripts or other adapters to send a message.
 
+## Changelog
+
+- 1.0.0: initial version
+
+## License
+
+MIT
+
