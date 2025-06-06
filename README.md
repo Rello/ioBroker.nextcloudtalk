@@ -13,12 +13,13 @@ following settings in the instance dialog:
 
 ## States
 
-- `roomID` (number): ID of the room to send messages to.
+ - `roomID` (string): Talk room token to send messages to.
 - `text` (string): When this state is changed, the adapter posts the new value as a message to the configured room.
 
 ## Usage
 
 Update the `text` state from scripts or other adapters to send a message.
+Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/api/v1/chat/{token}`.
 
 ## Changelog
 
