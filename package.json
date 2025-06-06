@@ -1,0 +1,21 @@
+{
+  "name": "iobroker.nextcloudtalk",
+  "version": "1.0.0",
+  "description": "ioBroker.NextcloudTalk",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.6.4",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
