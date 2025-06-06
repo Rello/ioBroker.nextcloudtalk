@@ -4,8 +4,12 @@ This adapter allows sending notifications to Nextcloud Talk rooms.
 
 ## Configuration
 
-1. Enter the Nextcloud server URL, for example `https://nextcloud.example.com`.
-2. Provide the username and the app token for basic authentication.
+This adapter now uses the ioBroker JSON configuration system. Enter the
+following settings in the instance dialog:
+
+1. **Server URL** – for example `https://nextcloud.example.com`
+2. **Username** for basic authentication
+3. **App Token** generated for the user
 
 ## States
 

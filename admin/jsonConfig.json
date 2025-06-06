@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "title": "Nextcloud Talk configuration",
+  "properties": {
+    "server": {
+      "type": "string",
+      "title": "Server URL"
+    },
+    "username": {
+      "type": "string",
+      "title": "Username"
+    },
+    "token": {
+      "type": "string",
+      "title": "App Token",
+      "format": "password"
+    }
+  },
+  "required": ["server", "username", "token"]
+}
