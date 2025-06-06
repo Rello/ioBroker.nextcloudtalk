@@ -2,13 +2,21 @@
   "i18n": true,
   "type": "panel",
   "items": {
+    "server": {
+      "type": "text",
+      "label": "Nextcloud URL",
+      "default": "https://your-nextcloud.example.com",
+      "sm": 12,
+      "md": 6,
+      "lg": 4
+    }
     "username": {
       "type": "text",
       "label": "Nextcloud Username",
       "default": "",
       "sm": 12,
       "md": 6,
-      "lg": 4
+      "lg": 6
     },
     "token": {
       "type": "password",
@@ -16,15 +24,7 @@
       "default": "",
       "sm": 12,
       "md": 6,
-      "lg": 4
-    },
-    "server": {
-      "type": "text",
-      "label": "Nextcloud Talk API URL",
-      "default": "https://your-nextcloud.example.com",
-      "sm": 12,
-      "md": 6,
       "lg": 6
-    }
+    },
   }
 }
