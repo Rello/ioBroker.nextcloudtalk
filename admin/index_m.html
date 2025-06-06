@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nextcloud Talk Adapter</title>
+    <script type="text/javascript" src="../lib/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr><td>Server URL:</td><td><input id="server" type="text" size="50"></td></tr>
+        <tr><td>Username:</td><td><input id="username" type="text" size="20"></td></tr>
+        <tr><td>App Token:</td><td><input id="token" type="text" size="40"></td></tr>
+    </table>
+    <script type="text/javascript">
+        if (typeof window.adapter === 'undefined') window.adapter = {};
+        window.adapter.onSave = function (obj) {
+            obj.native.server = $('#server').val();
+            obj.native.username = $('#username').val();
+            obj.native.token = $('#token').val();
+            return obj;
+        };
+        window.adapter.onLoad = function (obj) {
+            $('#server').val(obj.native.server);
+            $('#username').val(obj.native.username);
+            $('#token').val(obj.native.token);
+        };
+    </script>
+</body>
+</html>
