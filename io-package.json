@@ -36,12 +36,10 @@
       "config": "html"
     },
     "type": "messaging",
-      "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-    },
+    "dependencies": [
+      "js-controller>=6.0.0"
+    ]
+  },
   "native": {
     "server": "",
     "username": "",
