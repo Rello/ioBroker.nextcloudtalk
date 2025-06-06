@@ -1,20 +1,25 @@
 {
   "type": "object",
-  "title": "Nextcloud Talk configuration",
   "properties": {
-    "server": {
+    "user": {
       "type": "string",
-      "title": "Server URL"
+      "title": "Nextcloud Username",
+      "minLength": 1,
+      "default": ""
     },
-    "username": {
+    "appToken": {
       "type": "string",
-      "title": "Username"
+      "title": "Nextcloud App Token",
+      "minLength": 1,
+      "default": ""
     },
-    "token": {
+    "apiUrl": {
       "type": "string",
-      "title": "App Token",
-      "format": "password"
+      "title": "Nextcloud Talk API URL",
+      "minLength": 5,
+      "default": "https://your-nextcloud.example.com",
+      "pattern": "https?://.+"
     }
   },
-  "required": ["server", "username", "token"]
+  "required": ["user", "appToken", "apiUrl"]
 }
