@@ -43,16 +43,27 @@ class NextcloudTalk extends utils.Adapter {
         const server = this.config.server;
         const username = this.config.username;
         const token = this.config.token;
-        const url = `${server}/ocs/v2.php/apps/spreed/api/v4/rooms/${roomId}/message`;
-        await axios.post(url, { message: text }, {
-            headers: {
-                'OCS-APIRequest': 'true'
-            },
-            auth: {
-                username: username,
-                password: token
+        const url = `${server}/ocs/v2.php/apps/spreed/api/v1/chat/${roomId}`;
+        const body = { message: text, actorDisplayName: '', referenceId: '', replyTo: 0, silent: false };
+        this.log.debug(`Sending POST request to ${url} with body: ${JSON.stringify(body)}`);
+        try {
+            await axios.post(url, body, {
+                headers: {
+                    'OCS-APIRequest': 'true'
+                },
+                auth: {
+                    username: username,
+                    password: token
+                }
+            });
+        } catch (error) {
+            if (error.response) {
+                this.log.error(`POST ${error.response.config.url} failed with ${error.response.status}: ${JSON.stringify(error.response.data)}`);
+            } else {
+                this.log.error(`Request error: ${error.message}`);
             }
-        });
+            throw error;
+        }
     }
 }
 
