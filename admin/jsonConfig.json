@@ -1,27 +1,30 @@
 {
+  "i18n": true,
   "type": "panel",
   "items": {
     "username": {
-      "type": "string",
+      "type": "text",
       "label": "Nextcloud Username",
+      "default": "",
       "sm": 12,
       "md": 6,
       "lg": 4
     },
     "token": {
-      "type": "string",
+      "type": "password",
       "label": "Nextcloud App Token",
+      "default": "",
       "sm": 12,
       "md": 6,
       "lg": 4
     },
     "server": {
-      "type": "string",
+      "type": "text",
       "label": "Nextcloud Talk API URL",
+      "default": "https://your-nextcloud.example.com",
       "sm": 12,
       "md": 6,
-      "lg": 4
-      "default": "https://your-nextcloud.example.com",
+      "lg": 6
     }
-  },
+  }
 }
