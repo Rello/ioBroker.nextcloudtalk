@@ -7,24 +7,24 @@
       "label": "Nextcloud URL",
       "default": "https://your-nextcloud.example.com",
       "sm": 12,
-      "md": 6,
-      "lg": 4
-    }
+      "md": 12,
+      "lg": 12
+    },
     "username": {
       "type": "text",
       "label": "Nextcloud Username",
       "default": "",
       "sm": 12,
-      "md": 6,
-      "lg": 6
+      "md": 12,
+      "lg": 12
     },
     "token": {
       "type": "password",
       "label": "Nextcloud App Token",
       "default": "",
       "sm": 12,
-      "md": 6,
-      "lg": 6
-    },
+      "md": 12,
+      "lg": 12
+    }
   }
 }
