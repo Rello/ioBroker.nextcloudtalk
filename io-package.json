@@ -35,9 +35,9 @@
     "adminUI": {
       "config": "html"
     },
-    "type": "notification",
+    "type": "messaging",
     "dependencies": [
-      "js-controller>=5.0.19"
+      "js-controller": ">=6.0.0"
     ]
   },
   "native": {
