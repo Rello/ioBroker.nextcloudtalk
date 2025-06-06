@@ -32,6 +32,7 @@
     "loglevel": "info",
     "enabled": true,
     "tier": 2,
+    "admin": true,
     "adminUI": {
       "config": "json"
     },
