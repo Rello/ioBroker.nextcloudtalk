@@ -40,7 +40,7 @@
       {
         "js-controller": ">=6.0.0"
       }
-    ],
+    ]
   },
   "native": {
     "server": "",
