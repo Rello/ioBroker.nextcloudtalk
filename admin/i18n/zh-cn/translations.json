@@ -1,9 +1,9 @@
 {
-  "Nextcloud Talk Adapter": "Nextcloud Talk Adapter",
-  "Server URL:": "Server URL:",
-  "Username:": "Username:",
-  "App Token:": "App Token:",
+  "Nextcloud Talk Adapter": "Nextcloud Talk 适配器",
+  "Server URL:": "服务器 URL：",
+  "Username:": "用户名：",
+  "App Token:": "应用令牌：",
   "Nextcloud URL": "Nextcloud URL",
-  "Nextcloud Username": "Nextcloud Username",
-  "Nextcloud App Token": "Nextcloud App Token"
+  "Nextcloud Username": "Nextcloud 用户名",
+  "Nextcloud App Token": "Nextcloud 应用令牌"
 }
