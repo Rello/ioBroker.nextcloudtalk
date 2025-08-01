@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "type": "commonjs",
   "dependencies": {
@@ -26,7 +26,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "@iobroker/testing": "^4.1.3",
-    "@alcalzone/release-script": "^3.7.0"
+    "@alcalzone/release-script": "^3.8.0"
   },
   "files": [
     "admin",
