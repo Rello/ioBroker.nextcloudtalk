@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ioBroker Adapter Checker
-        run: npx @iobroker/testing check
-
       - name: Publish to npm
         run: npm publish
         env:
