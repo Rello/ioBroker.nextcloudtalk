@@ -1,5 +1,10 @@
-'use strict';
-const utils = require('@iobroker/adapter-core');
+"use strict";
+let utils;
+if (process.env.NODE_ENV === 'test') {
+    utils = { Adapter: class {} };
+} else {
+    utils = require('@iobroker/adapter-core');
+}
 const axios = require('axios');
 
 class NextcloudTalk extends utils.Adapter {
@@ -68,7 +73,7 @@ class NextcloudTalk extends utils.Adapter {
 }
 
 if (module.parent) {
-    module.exports = (options) => new NextcloudTalk(options);
+    module.exports = NextcloudTalk;
 } else {
     new NextcloudTalk();
 }

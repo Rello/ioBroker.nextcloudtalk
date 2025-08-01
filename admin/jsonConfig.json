@@ -6,25 +6,31 @@
       "type": "text",
       "label": "Nextcloud URL",
       "default": "https://your-nextcloud.example.com",
+      "xs": 12,
       "sm": 12,
       "md": 12,
-      "lg": 12
+      "lg": 12,
+      "xl": 12
     },
     "username": {
       "type": "text",
       "label": "Nextcloud Username",
       "default": "",
+      "xs": 12,
       "sm": 12,
       "md": 12,
-      "lg": 12
+      "lg": 12,
+      "xl": 12
     },
     "token": {
       "type": "password",
       "label": "Nextcloud App Token",
       "default": "",
+      "xs": 12,
       "sm": 12,
       "md": 12,
-      "lg": 12
+      "lg": 12,
+      "xl": 12
     }
   }
 }
