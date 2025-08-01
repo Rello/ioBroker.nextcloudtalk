@@ -1,9 +1,9 @@
 {
-  "Nextcloud Talk Adapter": "Nextcloud Talk Adapter",
-  "Server URL:": "Server URL:",
-  "Username:": "Username:",
-  "App Token:": "App Token:",
-  "Nextcloud URL": "Nextcloud URL",
-  "Nextcloud Username": "Nextcloud Username",
-  "Nextcloud App Token": "Nextcloud App Token"
+  "Nextcloud Talk Adapter": "Адаптер Nextcloud Talk",
+  "Server URL:": "URL сервера:",
+  "Username:": "Ім'я користувача:",
+  "App Token:": "Токен додатка:",
+  "Nextcloud URL": "URL Nextcloud",
+  "Nextcloud Username": "Ім'я користувача Nextcloud",
+  "Nextcloud App Token": "Токен додатка Nextcloud"
 }

@@ -19,29 +19,29 @@
       "1.0.0": {
         "en": "initial version",
         "de": "Erstversion",
-        "ru": "initial version",
-        "pt": "initial version",
-        "nl": "initial version",
-        "fr": "initial version",
-        "it": "initial version",
-        "es": "initial version",
-        "pl": "initial version",
-        "uk": "initial version",
-        "zh-cn": "initial version"
+        "ru": "начальная версия",
+        "pt": "versão inicial",
+        "nl": "eerste versie",
+        "fr": "version initiale",
+        "it": "versione iniziale",
+        "es": "versión inicial",
+        "pl": "wersja początkowa",
+        "uk": "початкова версія",
+        "zh-cn": "初始版本"
       }
     },
     "desc": {
       "en": "Use Nextcloud Talk to send notifications",
       "de": "Benachrichtigungen über Nextcloud Talk senden",
-      "ru": "Use Nextcloud Talk to send notifications",
-      "pt": "Use Nextcloud Talk to send notifications",
-      "nl": "Use Nextcloud Talk to send notifications",
-      "fr": "Use Nextcloud Talk to send notifications",
-      "it": "Use Nextcloud Talk to send notifications",
-      "es": "Use Nextcloud Talk to send notifications",
-      "pl": "Use Nextcloud Talk to send notifications",
-      "uk": "Use Nextcloud Talk to send notifications",
-      "zh-cn": "Use Nextcloud Talk to send notifications"
+      "ru": "Используйте Nextcloud Talk для отправки уведомлений",
+      "pt": "Use o Nextcloud Talk para enviar notificações",
+      "nl": "Gebruik Nextcloud Talk om meldingen te versturen",
+      "fr": "Utiliser Nextcloud Talk pour envoyer des notifications",
+      "it": "Usa Nextcloud Talk per inviare notifiche",
+      "es": "Usar Nextcloud Talk para enviar notificaciones",
+      "pl": "Użyj Nextcloud Talk do wysyłania powiadomień",
+      "uk": "Використовуйте Nextcloud Talk для відправлення сповіщень",
+      "zh-cn": "使用 Nextcloud Talk 发送通知"
     },
     "authors": [
       "Rello"
