@@ -23,6 +23,9 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 ## Changelog
 
+### 1.0.1
+* release fix
+
 ### 1.0.0
 * initial version
 
