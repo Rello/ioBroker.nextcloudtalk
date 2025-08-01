@@ -23,13 +23,11 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 ## Changelog
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### **WORK IN PROGRESS**
+* initial version
 
 ### 1.0.1
-* release fix
+* initial version
 
 ### 1.0.0
 * initial version
