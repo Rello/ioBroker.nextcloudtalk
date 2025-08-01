@@ -1,32 +1,62 @@
 {
   "common": {
     "name": "nextcloudtalk",
-    "title": "Nextcloud Talk",
     "titleLang": {
       "en": "Nextcloud Talk",
-      "de": "Nextcloud Talk"
+      "de": "Nextcloud Talk",
+      "ru": "Nextcloud Talk",
+      "pt": "Nextcloud Talk",
+      "nl": "Nextcloud Talk",
+      "fr": "Nextcloud Talk",
+      "it": "Nextcloud Talk",
+      "es": "Nextcloud Talk",
+      "pl": "Nextcloud Talk",
+      "uk": "Nextcloud Talk",
+      "zh-cn": "Nextcloud Talk"
     },
     "version": "1.0.0",
     "news": {
       "1.0.0": {
         "en": "initial version",
-        "de": "Erstversion"
+        "de": "Erstversion",
+        "ru": "initial version",
+        "pt": "initial version",
+        "nl": "initial version",
+        "fr": "initial version",
+        "it": "initial version",
+        "es": "initial version",
+        "pl": "initial version",
+        "uk": "initial version",
+        "zh-cn": "initial version"
       }
     },
     "desc": {
       "en": "Use Nextcloud Talk to send notifications",
-      "de": "Benachrichtigungen über Nextcloud Talk senden"
+      "de": "Benachrichtigungen über Nextcloud Talk senden",
+      "ru": "Use Nextcloud Talk to send notifications",
+      "pt": "Use Nextcloud Talk to send notifications",
+      "nl": "Use Nextcloud Talk to send notifications",
+      "fr": "Use Nextcloud Talk to send notifications",
+      "it": "Use Nextcloud Talk to send notifications",
+      "es": "Use Nextcloud Talk to send notifications",
+      "pl": "Use Nextcloud Talk to send notifications",
+      "uk": "Use Nextcloud Talk to send notifications",
+      "zh-cn": "Use Nextcloud Talk to send notifications"
     },
     "authors": [
       "Rello"
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
+    "compact": false,
     "icon": "nextcloud.png",
     "extIcon": "https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/master/admin/nextcloud.png",
     "keywords": ["nextcloud", "talk", "notification"],
     "readme": "https://github.com/Rello/ioBroker.nextcloudtalk/blob/master/README.md",
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "connectionType": "cloud",
     "dataSource": "push",
     "loglevel": "info",
@@ -46,5 +76,11 @@
     "username": "",
     "token": ""
   },
+  "protectedNative": [
+    "token"
+  ],
+  "encryptedNative": [
+    "token"
+  ],
   "objects": []
 }
