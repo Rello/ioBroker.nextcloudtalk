@@ -1,0 +1,4 @@
+{
+	// ... other options
+	"plugins": ["iobroker", "license"]
+}
