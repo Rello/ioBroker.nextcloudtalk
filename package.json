@@ -33,6 +33,7 @@
   "files": [
     "admin",
     "main.js",
-    "io-package.json"
+    "io-package.json",
+    "LICENSE"
   ]
 }
