@@ -14,8 +14,21 @@
       "uk": "Nextcloud Talk",
       "zh-cn": "Nextcloud Talk"
     },
-    "version": "1.0.1",
+    "version": "1.0.2",
     "news": {
+      "1.0.2": {
+        "en": "initial version",
+        "de": "Erstversion",
+        "ru": "начальная версия",
+        "pt": "versão inicial",
+        "nl": "eerste versie",
+        "fr": "version initiale",
+        "it": "versione iniziale",
+        "es": "versión inicial",
+        "pl": "wersja początkowa",
+        "uk": "початкова версія",
+        "zh-cn": "初始版本"
+      },
       "1.0.1": {
         "en": "initial version",
         "de": "Erstversion",
