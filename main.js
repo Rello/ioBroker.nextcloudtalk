@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let utils;
 if (process.env.NODE_ENV === 'test') {
     utils = { Adapter: class {} };
@@ -18,18 +18,20 @@ class NextcloudTalk extends utils.Adapter {
         await this.setObjectNotExists('roomID', {
             type: 'state',
             common: { type: 'string', role: 'value', name: 'Room ID', write: true, read: true },
-            native: {}
+            native: {},
         });
         await this.setObjectNotExists('text', {
             type: 'state',
             common: { type: 'string', role: 'text', name: 'Message text', write: true, read: true },
-            native: {}
+            native: {},
         });
         this.subscribeStates('text');
     }
 
     async onStateChange(id, state) {
-        if (!state || state.ack || !id.endsWith('text')) return;
+        if (!state || state.ack || !id.endsWith('text')) {
+            return;
+        }
         try {
             const roomIdState = await this.getStateAsync('roomID');
             const roomId = roomIdState ? roomIdState.val : null;
@@ -54,16 +56,18 @@ class NextcloudTalk extends utils.Adapter {
         try {
             await axios.post(url, body, {
                 headers: {
-                    'OCS-APIRequest': 'true'
+                    'OCS-APIRequest': 'true',
                 },
                 auth: {
                     username: username,
-                    password: token
-                }
+                    password: token,
+                },
             });
         } catch (error) {
             if (error.response) {
-                this.log.error(`POST ${error.response.config.url} failed with ${error.response.status}: ${JSON.stringify(error.response.data)}`);
+                this.log.error(
+                    `POST ${error.response.config.url} failed with ${error.response.status}: ${JSON.stringify(error.response.data)}`,
+                );
             } else {
                 this.log.error(`Request error: ${error.message}`);
             }
