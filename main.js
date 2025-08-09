@@ -6,6 +6,7 @@ if (process.env.NODE_ENV === 'test') {
     utils = require('@iobroker/adapter-core');
 }
 const axios = require('axios');
+const AXIOS_TIMEOUT = 10000;
 
 class NextcloudTalk extends utils.Adapter {
     constructor(options) {
@@ -62,6 +63,7 @@ class NextcloudTalk extends utils.Adapter {
                     username: username,
                     password: token,
                 },
+                timeout: AXIOS_TIMEOUT,
             });
         } catch (error) {
             if (error.response) {
