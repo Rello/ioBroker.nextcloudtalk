@@ -12,7 +12,7 @@ describe('NextcloudTalk adapter', () => {
         expect(axios.post).toHaveBeenCalledWith(
             'https://nc/ocs/v2.php/apps/spreed/api/v1/chat/5',
             { message: 'hello', actorDisplayName: '', referenceId: '', replyTo: 0, silent: false },
-            expect.objectContaining({ auth: { username: 'user', password: 'token' } })
+            expect.objectContaining({ auth: { username: 'user', password: 'token' }, timeout: 10000 })
         );
     });
 });
