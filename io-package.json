@@ -14,8 +14,21 @@
       "uk": "Nextcloud Talk",
       "zh-cn": "Nextcloud Talk"
     },
-    "version": "1.0.2",
+    "version": "1.0.3",
     "news": {
+      "1.0.3": {
+        "en": "Adapter requires node.js >= 22 now",
+        "de": "Adapter benötigt jetzt node.js >= 22",
+        "ru": "Теперь адаптеру требуется node.js >= 22",
+        "pt": "O adaptador agora requer node.js >= 22",
+        "nl": "Adapter vereist nu node.js >= 22",
+        "fr": "L'adaptateur nécessite désormais node.js >= 22",
+        "it": "L'adattatore ora richiede node.js >= 22",
+        "es": "El adaptador ahora requiere node.js >= 22",
+        "pl": "Adapter wymaga teraz node.js >= 22",
+        "uk": "Тепер адаптеру потрібен node.js >= 22",
+        "zh-cn": "适配器现在需要 node.js >= 22"
+      },
       "1.0.2": {
         "en": "initial version",
         "de": "Erstversion",
