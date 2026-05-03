@@ -74,9 +74,9 @@
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
-    "compact": false,
+    "compact": true,
     "icon": "nextcloud.png",
-    "extIcon": "https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/master/admin/nextcloud.png",
+    "extIcon": "https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png",
     "keywords": ["nextcloud", "talk", "notification"],
     "readme": "https://github.com/Rello/ioBroker.nextcloudtalk/blob/master/README.md",
     "licenseInformation": {
@@ -88,16 +88,15 @@
     "loglevel": "info",
     "enabled": true,
     "tier": 2,
-    "admin": true,
     "adminUI": {
       "config": "json"
     },
     "type": "messaging",
     "dependencies": [
-      {"js-controller": ">=6.0.0"}
+      {"js-controller": ">=6.0.11"}
     ],
     "globalDependencies": [
-      {"admin": ">=7.4.10"}
+      {"admin": ">=7.6.20"}
     ]
   },
   "native": {
