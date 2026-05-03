@@ -24,6 +24,7 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.2
 * updated logo
