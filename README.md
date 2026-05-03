@@ -38,7 +38,7 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 ## License
 
-Copyright (c) 2025 Rello
+Copyright (c) 2025-2026 Rello
 
 MIT
 
