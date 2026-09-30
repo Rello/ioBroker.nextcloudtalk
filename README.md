@@ -31,6 +31,9 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 ## Changelog
 
+### Unreleased
+* Add atomic per-message sending through `send` while keeping `roomID` and `text` compatible.
+
 ### 1.0.3
 * Adapter requires node.js >= 22 now
 
