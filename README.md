@@ -13,12 +13,20 @@ following settings in the instance dialog:
 
 ## States
 
- - `roomID` (string): Talk room token to send messages to.
-- `text` (string): When this state is changed, the adapter posts the new value as a message to the configured room.
+- `roomID` (string): Talk room token used by the legacy `text` state.
+- `text` (string): When written, the adapter posts the value to the room in `roomID`.
+- `send` (JSON string): When written, the adapter posts `text` to the specified `roomId` without changing `roomID`.
 
 ## Usage
 
-Update the `text` state from scripts or other adapters to send a message.
+Existing scripts can continue writing `roomID` followed by `text` to send a message.
+To select the room atomically for each message, write a JSON string to `send`:
+
+```js
+setState('nextcloudtalk.0.send', JSON.stringify({ roomId: 'abc123', text: 'Hello from ioBroker' }));
+```
+
+Both `roomId` and `text` must be non-empty strings. Writes must use `ack=false` (the default for `setState`).
 Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/api/v1/chat/{token}`.
 
 ## Changelog
