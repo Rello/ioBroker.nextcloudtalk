@@ -93,7 +93,7 @@
     "keywords": ["nextcloud", "talk", "notification"],
     "readme": "https://github.com/Rello/ioBroker.nextcloudtalk/blob/master/README.md",
     "licenseInformation": {
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "type": "free"
     },
     "connectionType": "cloud",
