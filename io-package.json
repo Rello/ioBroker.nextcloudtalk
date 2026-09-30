@@ -83,7 +83,7 @@
       "zh-cn": "使用 Nextcloud Talk 发送通知"
     },
     "authors": [
-      "Rello"
+      "Rello <github@scherello.de>"
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
