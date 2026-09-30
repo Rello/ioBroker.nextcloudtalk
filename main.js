@@ -73,8 +73,8 @@ class NextcloudTalk extends utils.Adapter {
     }
 }
 
-if (module.parent) {
-    module.exports = NextcloudTalk;
-} else {
+if (require.main === module) {
     new NextcloudTalk();
+} else {
+    module.exports = NextcloudTalk;
 }
