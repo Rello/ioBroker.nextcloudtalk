@@ -1,3 +1,4 @@
+jest.mock('@iobroker/adapter-core', () => ({ Adapter: class {} }));
 const NextcloudTalk = require('../main');
 const axios = require('axios');
 jest.mock('axios');

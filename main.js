@@ -1,10 +1,5 @@
 'use strict';
-let utils;
-if (process.env.NODE_ENV === 'test') {
-    utils = { Adapter: class {} };
-} else {
-    utils = require('@iobroker/adapter-core');
-}
+const utils = require('@iobroker/adapter-core');
 const axios = require('axios');
 const AXIOS_TIMEOUT = 10000;
 
