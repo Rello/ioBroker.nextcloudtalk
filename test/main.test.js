@@ -11,6 +11,8 @@ describe('NextcloudTalk adapter', () => {
         sendMessage: jest.fn().mockResolvedValue(),
         setObjectNotExists: jest.fn().mockResolvedValue(),
         subscribeStates: jest.fn(),
+        setStateAsync: jest.fn().mockResolvedValue(),
+        config: { receiveEnabled: false },
     });
 
     beforeEach(() => {
@@ -95,5 +97,40 @@ describe('NextcloudTalk adapter', () => {
             { message: 'hello', actorDisplayName: '', referenceId: '', replyTo: 0, silent: false },
             expect.objectContaining({ auth: { username: 'user', password: 'token' }, timeout: 10000 }),
         );
+    });
+
+    test('receiving is optional and creates a read-only event state', async () => {
+        const adapter = createAdapter();
+        await NextcloudTalk.prototype.onReady.call(adapter);
+        expect(adapter.setObjectNotExists).toHaveBeenCalledWith('received', expect.objectContaining({
+            common: expect.objectContaining({ write: false, read: true }),
+        }));
+        expect(axios.get).not.toHaveBeenCalled();
+    });
+
+    test('initializes the cursor then publishes only new user messages without read markers', async () => {
+        const adapter = createAdapter();
+        adapter.config = { server: 'https://nc', username: 'bot', token: 'secret', receiveRoom: 'room' };
+        adapter.getStateAsync.mockResolvedValue(null);
+        adapter.receiveStopped = false;
+        axios.get.mockResolvedValueOnce({ status: 200, data: { ocs: { data: [{ id: 10 }] } } });
+        axios.get.mockImplementationOnce(async () => ({ status: 200, data: { ocs: { data: [
+            { id: 11, messageType: 'comment', actorType: 'users', actorId: 'bot', message: 'own' },
+            { id: 12, messageType: 'system', systemMessage: 'joined', actorId: 'other', message: 'system' },
+            { id: 13, messageType: 'comment', systemMessage: '', actorType: 'users', actorId: 'alice',
+                actorDisplayName: 'Alice', timestamp: 123, message: 'hello' },
+        ] } } }));
+        axios.get.mockImplementationOnce(async () => { adapter.receiveStopped = true; return { status: 304 }; });
+        await NextcloudTalk.prototype.receiveLoop.call(adapter);
+        expect(axios.get).toHaveBeenCalledWith('https://nc/ocs/v2.php/apps/spreed/api/v1/chat/room',
+            expect.objectContaining({ params: expect.objectContaining({ setReadMarker: 0, markNotificationsAsRead: 0,
+                noStatusUpdate: 1, lookIntoFuture: 0 }) }));
+        expect(axios.get.mock.calls[1][1].params).toEqual(expect.objectContaining({ lookIntoFuture: 1,
+            lastKnownMessageId: 10 }));
+        const events = adapter.setStateAsync.mock.calls.filter(([id]) => id === 'received');
+        expect(events).toHaveLength(1);
+        expect(JSON.parse(events[0][1].val)).toEqual(expect.objectContaining({ roomId: 'room', id: 13,
+            text: 'hello', actorId: 'alice' }));
+        expect(events[0][1].ack).toBe(true);
     });
 });
