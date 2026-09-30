@@ -42,4 +42,4 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 Copyright (c) 2025-2026 Rello <github@scherello.de>
 
-[MIT License](LICENSE)
+[GNU Affero General Public License v3.0](LICENSE)
