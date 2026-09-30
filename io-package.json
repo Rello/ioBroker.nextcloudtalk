@@ -14,9 +14,9 @@
       "uk": "Nextcloud Talk",
       "zh-cn": "Nextcloud Talk"
     },
-    "version": "1.0.4-beta.0",
+    "version": "2.0.0",
     "news": {
-      "1.0.4-beta.0": {
+      "2.0.0": {
         "en": "Add single-room Talk message receiving and atomic message sending",
         "de": "Talk-Nachrichten aus einem Raum empfangen und Nachrichten atomar senden",
         "ru": "Добавлены получение сообщений из одной комнаты Talk и атомарная отправка сообщений",

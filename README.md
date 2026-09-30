@@ -1,6 +1,6 @@
 # ioBroker Nextcloud Talk Adapter
 
-This adapter allows sending notifications to Nextcloud Talk rooms.
+This adapter sends messages to Nextcloud Talk rooms and can optionally receive messages from one room.
 
 ## Configuration
 
@@ -10,39 +10,56 @@ following settings in the instance dialog:
 1. **Server URL** – for example `https://nextcloud.example.com`
 2. **Username** for basic authentication
 3. **App Token** generated for the user
-4. Optionally enable **Receive messages** and enter one **Receive room token**. The authenticated user must belong to that Talk conversation.
 
-## States
+## Sending how-to
 
-- `roomID` (string): Talk room token used by the legacy `text` state.
-- `text` (string): When written, the adapter posts the value to the room in `roomID`.
-- `send` (JSON string): When written, the adapter posts `text` to the specified `roomId` without changing `roomID`.
-- `received` (read-only JSON string): The latest incoming user message from the configured room. Each message is written with `ack=true` and includes `roomId`, `id`, `text`, `actorId`, `actorDisplayName`, `timestamp`, and `messageType`.
-- `receiveCursor` (read-only JSON string): The saved room token and last processed message ID, used across adapter restarts.
-
-## Usage
-
-Existing scripts can continue writing `roomID` followed by `text` to send a message.
-To select the room atomically for each message, write a JSON string to `send`:
+Write a JSON string to `nextcloudtalk.0.send` to choose the room and text together:
 
 ```js
 setState('nextcloudtalk.0.send', JSON.stringify({ roomId: 'abc123', text: 'Hello from ioBroker' }));
 ```
 
-Both `roomId` and `text` must be non-empty strings. Writes must use `ack=false` (the default for `setState`).
-Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/api/v1/chat/{token}`.
+Both fields must be non-empty strings. The write must use `ack=false`, which is the default for `setState`. The `send` state does not change `roomID`.
 
-When receiving is enabled, the adapter listens to only the configured room using one Talk long-poll request. On first start or after changing rooms, it starts after the latest existing message, so old chat history does not trigger scripts. It ignores messages from the configured account and Talk system messages, and does not mark messages or notifications as read. A brief restart between publishing an event and saving its cursor can repeat that event; scripts that act on it should track `roomId` and `id` if this matters. The adapter never executes commands from chat text.
+Existing scripts and Blockly rules can continue using the legacy states: set `roomID` to the Talk room token, then write the message to `text` with `ack=false`. `roomID` selects the room; writing `text` sends the message. Both sending methods use Talk's `/ocs/v2.php/apps/spreed/api/v1/chat/{token}` endpoint.
 
-For example, an ioBroker JavaScript script can subscribe to `nextcloudtalk.0.received` with the `change: 'any'` option, parse `obj.state.val`, and allow only specific texts and senders to trigger its own actions. Blockly can use a state-change trigger on the same state and parse its JSON value.
+## Receiving how-to
+
+1. In the adapter instance settings, enable **Receive messages** and enter one **Receive room token**. The configured Nextcloud account must belong to that conversation. Receiving is off by default and monitors only this room.
+2. Send a *new* message to that room from another Talk account. The first poll establishes the current position and does not replay older messages.
+3. Watch `nextcloudtalk.0.received`. Each incoming user message writes an acknowledged JSON string such as:
+
+   ```json
+   {"roomId":"abc123","id":42,"text":"Light on","actorId":"alice","actorDisplayName":"Alice","timestamp":1780000000,"messageType":"comment"}
+   ```
+
+### Use the message in JavaScript
+
+Subscribe to every update, parse the JSON, and decide which senders and texts your script accepts:
+
+```js
+on({ id: 'nextcloudtalk.0.received', change: 'any', ack: true }, obj => {
+    const message = JSON.parse(obj.state.val);
+    if (message.actorId === 'alice' && message.text === 'Light on') {
+        // Perform your chosen ioBroker action here.
+    }
+});
+```
+
+### Use the message in Blockly
+
+Create a state-change trigger for `nextcloudtalk.0.received` and choose **any update**. Inside it, pass the trigger's current value to **Convert JSON to object** and store the result in a variable such as `message`. Use **Attribute … of object …** with that variable to read `text`, `actorId`, or another field. For example, compare `actorId` with `alice` and `text` with `Light on` in an **if** block before running an action.
+
+The adapter ignores its own and Talk system messages. It does not mark messages or notifications as read, and it does not execute chat commands. `nextcloudtalk.0.receiveCursor` stores the room token and last processed message ID across restarts. A restart between publishing `received` and saving the cursor can repeat a message; scripts that require duplicate protection should track `roomId` and `id`. Successful polls are silent in the adapter log; request failures produce warnings.
 
 ## Changelog
 
 ### Unreleased
 
-### 1.0.4-beta.0
+### 2.0.0
 * Add atomic per-message sending through `send` while keeping `roomID` and `text` compatible.
 * Add optional single-room Talk message receiving through the `received` state.
+* Add separate sending and receiving how-to guides.
 
 ### 1.0.3
 * Adapter requires node.js >= 22 now
