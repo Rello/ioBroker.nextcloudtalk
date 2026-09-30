@@ -5,5 +5,7 @@
     "Nextcloud URL": "Nextcloud-URL",
     "Nextcloud Username": "Nextcloud-Benutzername",
     "Server URL:": "Server-URL:",
-    "Username:": "Benutzername:"
+    "Username:": "Benutzername:",
+    "Receive messages": "Nachrichten empfangen",
+    "Receive room token": "Token des Empfangsraums"
 }

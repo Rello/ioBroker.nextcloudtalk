@@ -5,5 +5,7 @@
     "Nextcloud URL": "Nextcloud URL",
     "Nextcloud Username": "Nextcloud 用户名",
     "Server URL:": "服务器 URL：",
-    "Username:": "用户名："
+    "Username:": "用户名：",
+    "Receive messages": "接收消息",
+    "Receive room token": "接收聊天室令牌"
 }

@@ -115,7 +115,9 @@
   "native": {
     "server": "",
     "username": "",
-    "token": ""
+    "token": "",
+    "receiveEnabled": false,
+    "receiveRoom": ""
   },
   "protectedNative": [
     "token"

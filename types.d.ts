@@ -4,6 +4,8 @@ declare global {
             server: string;
             username: string;
             token: string;
+            receiveEnabled: boolean;
+            receiveRoom: string;
         }
     }
 }

@@ -22,6 +22,26 @@
       "lg": 12,
       "xl": 12
     },
+    "receiveEnabled": {
+      "type": "checkbox",
+      "label": "Receive messages",
+      "default": false,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "receiveRoom": {
+      "type": "text",
+      "label": "Receive room token",
+      "default": "",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
     "token": {
       "type": "password",
       "label": "Nextcloud App Token",
