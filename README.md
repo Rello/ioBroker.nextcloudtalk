@@ -39,6 +39,8 @@ For example, an ioBroker JavaScript script can subscribe to `nextcloudtalk.0.rec
 ## Changelog
 
 ### Unreleased
+
+### 1.0.4-beta.0
 * Add atomic per-message sending through `send` while keeping `roomID` and `text` compatible.
 * Add optional single-room Talk message receiving through the `received` state.
 

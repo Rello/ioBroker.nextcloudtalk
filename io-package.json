@@ -14,8 +14,21 @@
       "uk": "Nextcloud Talk",
       "zh-cn": "Nextcloud Talk"
     },
-    "version": "1.0.3",
+    "version": "1.0.4-beta.0",
     "news": {
+      "1.0.4-beta.0": {
+        "en": "Add single-room Talk message receiving and atomic message sending",
+        "de": "Talk-Nachrichten aus einem Raum empfangen und Nachrichten atomar senden",
+        "ru": "Добавлены получение сообщений из одной комнаты Talk и атомарная отправка сообщений",
+        "pt": "Adiciona receção de mensagens de uma sala Talk e envio atómico de mensagens",
+        "nl": "Ontvang Talk-berichten uit één ruimte en verstuur berichten atomair",
+        "fr": "Ajout de la réception des messages d'un salon Talk et de l'envoi atomique",
+        "it": "Aggiunta la ricezione dei messaggi da una stanza Talk e l'invio atomico",
+        "es": "Añade recepción de mensajes de una sala Talk y envío atómico",
+        "pl": "Dodano odbieranie wiadomości z jednego pokoju Talk i wysyłanie atomowe",
+        "uk": "Додано отримання повідомлень з однієї кімнати Talk та атомарне надсилання",
+        "zh-cn": "新增单个 Talk 聊天室消息接收和原子消息发送"
+      },
       "1.0.3": {
         "en": "Adapter requires node.js >= 22 now",
         "de": "Adapter benötigt jetzt node.js >= 22",

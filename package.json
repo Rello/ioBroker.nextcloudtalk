@@ -1,6 +1,6 @@
 {
   "name": "iobroker.nextcloudtalk",
-  "version": "1.0.3",
+  "version": "1.0.4-beta.0",
   "description": "ioBroker.NextcloudTalk",
   "main": "main.js",
   "scripts": {
