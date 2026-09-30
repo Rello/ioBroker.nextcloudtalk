@@ -1,0 +1,14 @@
+{
+    "extends": "@tsconfig/node22/tsconfig.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "allowJs": true,
+        "checkJs": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": false,
+        "useUnknownInCatchVariables": false,
+        "types": ["@iobroker/types", "node", "mocha"]
+    },
+    "include": ["main.js", "types.d.ts"],
+    "exclude": ["node_modules/**"]
+}
