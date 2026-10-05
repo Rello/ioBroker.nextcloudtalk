@@ -55,7 +55,7 @@ class NextcloudTalk extends utils.Adapter {
         this.receiveStopped = true;
         this.receiveAbort?.abort();
         if (this.receiveTimer) {
-            clearTimeout(this.receiveTimer);
+            this.clearTimeout(this.receiveTimer);
         }
         this.receiveRetryResolve?.(undefined);
         callback();
@@ -150,7 +150,7 @@ class NextcloudTalk extends utils.Adapter {
                 this.log.warn(`Talk receive request failed: ${error.message}`);
                 await new Promise(resolve => {
                     this.receiveRetryResolve = resolve;
-                    this.receiveTimer = setTimeout(resolve, RETRY_DELAY);
+                    this.receiveTimer = this.setTimeout(() => resolve(undefined), RETRY_DELAY);
                 });
                 this.receiveTimer = undefined;
                 this.receiveRetryResolve = undefined;

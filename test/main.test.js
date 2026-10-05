@@ -12,6 +12,8 @@ describe('NextcloudTalk adapter', () => {
         setObjectNotExists: jest.fn().mockResolvedValue(),
         subscribeStates: jest.fn(),
         setStateAsync: jest.fn().mockResolvedValue(),
+        setTimeout: jest.fn(),
+        clearTimeout: jest.fn(),
         config: { receiveEnabled: false },
     });
 
@@ -132,5 +134,33 @@ describe('NextcloudTalk adapter', () => {
         expect(JSON.parse(events[0][1].val)).toEqual(expect.objectContaining({ roomId: 'room', id: 13,
             text: 'hello', actorId: 'alice' }));
         expect(events[0][1].ack).toBe(true);
+    });
+
+    test('cancels an adapter-managed retry timer on unload', async () => {
+        const adapter = createAdapter();
+        adapter.config = { server: 'https://nc', username: 'bot', token: 'secret', receiveRoom: 'room' };
+        adapter.getStateAsync.mockResolvedValue(null);
+        adapter.receiveStopped = false;
+        const timer = { id: 1 };
+        let timerScheduled;
+        const scheduled = new Promise(resolve => { timerScheduled = resolve; });
+        adapter.setTimeout.mockImplementation((callback, delay) => {
+            timerScheduled({ callback, delay });
+            return timer;
+        });
+        axios.get.mockRejectedValueOnce(new Error('temporary failure'));
+
+        const receiving = NextcloudTalk.prototype.receiveLoop.call(adapter);
+        const retry = await scheduled;
+        expect(retry.delay).toBe(5000);
+        expect(adapter.receiveTimer).toBe(timer);
+
+        const unloadCallback = jest.fn();
+        NextcloudTalk.prototype.onUnload.call(adapter, unloadCallback);
+        await receiving;
+
+        expect(adapter.clearTimeout).toHaveBeenCalledWith(timer);
+        expect(unloadCallback).toHaveBeenCalled();
+        expect(axios.get).toHaveBeenCalledTimes(1);
     });
 });
